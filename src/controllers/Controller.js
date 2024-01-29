@@ -31,6 +31,16 @@ class Controller {
       res.status(500).json(error.message);
     }
   }
+
+  async delete(req, res) {
+    try {
+      const { id } = req.params;
+      const registroDeletado = await this.entidadeService.deleteRegister(id);
+      return res.status(200).json(registroDeletado);
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = Controller;

@@ -10,11 +10,15 @@ class Services {
   }
 
   async getRegisterById(id) {
-    return dataSource[this.model].findOne({ where: { id } });
+    return dataSource[this.model].findByPk({ where: { id } });
   }
 
   async createRegister(registo) {
     return dataSource[this.model].create(registo);
+  }
+
+  async deleteRegister(id) {
+    return dataSource[this.model].destroy({ where: { id } });
   }
 }
 
