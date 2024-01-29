@@ -8,6 +8,10 @@ class Services {
   async getAllRegister() {
     return dataSource[this.model].findAll();
   }
+
+  async getRegisterById(id) {
+    return dataSource[this.model].findOne({ where: { id } });
+  }
 }
 
 module.exports = Services;
