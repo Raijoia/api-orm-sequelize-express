@@ -12,6 +12,10 @@ class Services {
   async getRegisterById(id) {
     return dataSource[this.model].findOne({ where: { id } });
   }
+
+  async createRegister(registo) {
+    return dataSource[this.model].create(registo);
+  }
 }
 
 module.exports = Services;

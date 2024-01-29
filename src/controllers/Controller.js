@@ -21,6 +21,16 @@ class Controller {
       return res.status(500).json(error.message);
     }
   }
+
+  async create(req, res) {
+    try {
+      const novoRegistro = req.body;
+      const registroCriado = await this.entidadeService.createRegister(novoRegistro);
+      return res.status(201).json(registroCriado);
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = Controller;
