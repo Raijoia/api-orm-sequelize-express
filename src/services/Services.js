@@ -17,6 +17,12 @@ class Services {
     return dataSource[this.model].create(registo);
   }
 
+  async updateRegister(id, dadosAtualizados) {
+    const listaAtualizada = dataSource[this.model].update(dadosAtualizados, { where: { id } });
+    if (listaAtualizada[0] === 0) return false;
+    return true;
+  }
+
   async deleteRegister(id) {
     return dataSource[this.model].destroy({ where: { id } });
   }
